@@ -2261,6 +2261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ID: {fileID: 11400000, guid: 846dc24474764d7408f832779e62061b, type: 2}
+  _InputAction: {fileID: 0}
+  _State: 5
   _DailyHighscores:
   - {fileID: 4992428241713695098}
   - {fileID: 4286538006435758144}
