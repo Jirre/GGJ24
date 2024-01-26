@@ -196,6 +196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5d509e0604db0d4e92fb3714644a44f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _MinBound: {x: -15, y: 0}
+  _MaxBound: {x: 15, y: 10}
 --- !u!4 &248312861
 Transform:
   m_ObjectHideFlags: 0

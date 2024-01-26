@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: EnemyConfigs
   m_EditorClassIdentifier: 
   _BaseList: {fileID: 0}
-  _Entries: []
+  _Entries:
+  - {fileID: 11400000, guid: 7da70e6ecb8863f498a4732c11963181, type: 2}
+  - {fileID: 11400000, guid: d922ab70d7ba76c4793fefbd6d62e169, type: 2}
   _DerivedLists: []
   _Guid: 

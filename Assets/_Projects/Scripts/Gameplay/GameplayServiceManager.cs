@@ -1,3 +1,4 @@
+using System;
 using JvLib.Services;
 using UnityEngine;
 
@@ -17,6 +18,14 @@ namespace Project.Gameplay
         {
             IsServiceReady = true;
             ServiceLocator.Instance.ReportInstanceReady(this);
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.cyan;
+            Vector3 pos = (_MinBound + _MaxBound) * .5f;
+            Vector3 size = _MaxBound - _MinBound;
+            Gizmos.DrawWireCube(pos, size);
         }
     }
 }
