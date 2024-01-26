@@ -32,7 +32,7 @@ public class TrajectoryPredictor : MonoBehaviour
         Vector3 nextPos;
         float overlap;
 
-        UpdateLineRenderer(_MaxPoints, (0, pos));
+        UpdateLineRenderer(_MaxPoints, 0, pos);
 
         for (int i = 0; i < _MaxPoints; i++)
         {
@@ -43,7 +43,7 @@ public class TrajectoryPredictor : MonoBehaviour
 
             if (Physics.Raycast(pos, velocity.normalized, out RaycastHit hit, overlap))
             {
-                UpdateLineRenderer(i, (i - 1, hit.point));
+                UpdateLineRenderer(i, i - 1, hit.point);
                 MoveHitMarker(hit);
                 Debug.Log(hit.point);
                 break;
@@ -51,7 +51,7 @@ public class TrajectoryPredictor : MonoBehaviour
 
             _HitMarker.gameObject.SetActive(false);
             pos = nextPos;
-            UpdateLineRenderer(_MaxPoints, (i, pos));
+            UpdateLineRenderer(_MaxPoints, i, pos);
         }
     }
 
@@ -62,10 +62,10 @@ public class TrajectoryPredictor : MonoBehaviour
         return velocity;
     }
 
-    private void UpdateLineRenderer(int count, (int point, Vector3 pos) pointPos)
+    private void UpdateLineRenderer(int count, int point, Vector3 pos)
     {
         _TrajectoryLine.positionCount = count;
-        _TrajectoryLine.SetPosition(pointPos.point, pointPos.pos);
+        _TrajectoryLine.SetPosition(point, pos);
     }
 
     private void MoveHitMarker(RaycastHit hit)
