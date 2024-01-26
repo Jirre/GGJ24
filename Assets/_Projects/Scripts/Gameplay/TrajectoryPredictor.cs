@@ -7,6 +7,7 @@ public class TrajectoryPredictor : MonoBehaviour
 {
     private LineRenderer _TrajectoryLine;
     [SerializeField] private Transform _HitMarker;
+    [SerializeField] private Transform _Target;
 
     // Max number of points the linerenderer can have
     [SerializeField] private int _MaxPoints;
@@ -14,12 +15,12 @@ public class TrajectoryPredictor : MonoBehaviour
 
     [SerializeField, Range(1.05f, 2f)] private float _RayOverlap = 1.1f;
 
-    private CanonShooter _CanonShooter;
+    private CanonController _CanonShooter;
 
 
     private void Start()
     {
-        _CanonShooter = GetComponent<CanonShooter>();
+        _CanonShooter = GetComponent<CanonController>();
 
         if(_TrajectoryLine == null)
             _TrajectoryLine = GetComponent<LineRenderer>();
@@ -28,7 +29,7 @@ public class TrajectoryPredictor : MonoBehaviour
     public void PredictTrajectory(AmmoProperties ammoProperties)
     {
         Vector3 velocity = ammoProperties.Direction * (ammoProperties.StartSpeed / ammoProperties.Mass);
-        Vector3 pos = _CanonShooter._ShootPoint.position;
+        Vector3 pos = _Target.position;
         Vector3 nextPos;
         float overlap;
 
@@ -46,8 +47,8 @@ public class TrajectoryPredictor : MonoBehaviour
 
                 Debug.DrawRay(nextPos, hit.point);
 
-                Debug.Log("Next pos: " + nextPos);
-                Debug.Log("Hit point: " + hit.point);
+                //Debug.Log("Next pos: " + nextPos);
+                //Debug.Log("Hit point: " + hit.point);
 
                 if (i - 1 >= 0)
                 {
