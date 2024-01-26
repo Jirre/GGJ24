@@ -359,7 +359,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 26d37ae16266dc74ab3813f9b75fb76a, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 26d37ae16266dc74ab3813f9b75fb76a, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 3
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -644,7 +644,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1859366902}
   - component: {fileID: 1859366901}
-  - component: {fileID: 1859366900}
   - component: {fileID: 1859366899}
   m_Layer: 0
   m_Name: Input
@@ -665,36 +664,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b6760f12b5e9348b12b32d6234ed48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1859366900
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1859366898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 26d37ae16266dc74ab3813f9b75fb76a, type: 3}
-  m_NotificationBehavior: 3
-  m_UIInputModule: {fileID: 1129512202}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Player
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  _Inputs:
+  - {fileID: 1063367803}
+  - {fileID: 1264287968}
+  _CheckRightAction: {fileID: 8277252078404169012, guid: 26d37ae16266dc74ab3813f9b75fb76a, type: 3}
 --- !u!114 &1859366901
 MonoBehaviour:
   m_ObjectHideFlags: 0

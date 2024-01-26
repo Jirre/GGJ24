@@ -11,8 +11,12 @@ using UnityEngine.InputSystem;
 public class CanonController : MonoBehaviour
 {
     [SerializeField] private Transform _Pivot;
+    [SerializeField] private int _PlayerIndex;
     [SerializeField, TabGroup("Movement")] private InputActionAsset _InputMap;
+    [SerializeField, TabGroup("Movement")] private InputActionReference _Movement;
     [SerializeField, TabGroup("Movement")] private float _RotationSpeed;
+    [SerializeField, TabGroup("Movement")] private Vector2 _ClampX;
+    [SerializeField, TabGroup("Movement")] private Vector2 _ClampY;
 
     [SerializeField, TabGroup("Shooting")] private InputActionReference _Fire;
     [SerializeField, TabGroup("Shooting")] private PooledObjectConfig _AmmoConfig;
@@ -26,12 +30,17 @@ public class CanonController : MonoBehaviour
 
     private Vector2 _RotationDirection;
 
+    private PlayerInput _PlayerInput;
+
     private void Awake()
     {
-        InputActionMap map = _InputMap.FindActionMap("Player");
-        bindAction(map.FindAction("Horizontal"), JoystickAction);
-        _Fire.action.Enable();
-        _Fire.action.performed += ShootObject;
+        Svc.Ref.Input.WaitForInstanceReady(() =>
+        {
+            _PlayerInput = Svc.Input.FindPlayer(_PlayerIndex);
+
+            _PlayerInput.actions[_Movement.name].AddListeners(Movement);
+            _PlayerInput.actions[_Fire.name].AddListeners(ShootObject);
+        });
     }
 
     private void Start()
@@ -39,14 +48,7 @@ public class CanonController : MonoBehaviour
         _lineRenderer = GetComponent<LineRenderer>();
     }
 
-    private void bindAction(InputAction binder, Action<InputAction.CallbackContext> action)
-    {
-        binder.started += action;
-        binder.performed += action;
-        binder.canceled += action;
-    }
-
-    private void JoystickAction(InputAction.CallbackContext context)
+    private void Movement(InputAction.CallbackContext context)
     {
         Vector2 dir = context.ReadValue<Vector2>();
         _RotationDirection = dir;
@@ -66,8 +68,8 @@ public class CanonController : MonoBehaviour
         _Pivot.localEulerAngles += new Vector3(_RotationDirection.y, _RotationDirection.x, 0);
 
 
-        float rotX = Mathf.Clamp((_Pivot.localEulerAngles.x - 360f) % 360, -45, -1);
-        float rotY = Mathf.Clamp(_Pivot.localEulerAngles.y, 1, 30);
+        float rotX = Mathf.Clamp((_Pivot.localEulerAngles.x + 360f) % 360, _ClampX.x, _ClampX.y);
+        float rotY = Mathf.Clamp((_Pivot.localEulerAngles.y + 360f) % 360, _ClampY.x, _ClampY.y);
         float rotZ = 0;
 
         _Pivot.localEulerAngles = new Vector3(rotX, rotY, rotZ);
@@ -76,6 +78,9 @@ public class CanonController : MonoBehaviour
 
     private void ShootObject(InputAction.CallbackContext context)
     {
+        if (!context.started)
+            return;
+
         if (_shootCooldown > 0)
             return;
 
