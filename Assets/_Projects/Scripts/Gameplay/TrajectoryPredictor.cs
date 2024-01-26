@@ -21,13 +21,13 @@ public class TrajectoryPredictor : MonoBehaviour
     {
         _CanonShooter = GetComponent<CanonShooter>();
 
-        if(_TrajectoryLine is null)
+        if(_TrajectoryLine == null)
             _TrajectoryLine = GetComponent<LineRenderer>();
     }
 
     public void PredictTrajectory(AmmoProperties ammoProperties)
     {
-        Vector3 velocity = ammoProperties.StartSpeed / ammoProperties.Mass * ammoProperties.Direction;
+        Vector3 velocity = ammoProperties.Direction * (ammoProperties.StartSpeed / ammoProperties.Mass);
         Vector3 pos = _CanonShooter._ShootPoint.position;
         Vector3 nextPos;
         float overlap;
@@ -43,9 +43,17 @@ public class TrajectoryPredictor : MonoBehaviour
 
             if (Physics.Raycast(pos, velocity.normalized, out RaycastHit hit, overlap))
             {
-                UpdateLineRenderer(i, i - 1, hit.point);
+
+                Debug.DrawRay(nextPos, hit.point);
+
+                Debug.Log("Next pos: " + nextPos);
+                Debug.Log("Hit point: " + hit.point);
+
+                if (i - 1 >= 0)
+                {
+                    UpdateLineRenderer(i, i - 1, hit.point);
+                }
                 MoveHitMarker(hit);
-                Debug.Log(hit.point);
                 break;
             }
 
@@ -64,8 +72,11 @@ public class TrajectoryPredictor : MonoBehaviour
 
     private void UpdateLineRenderer(int count, int point, Vector3 pos)
     {
-        _TrajectoryLine.positionCount = count;
-        _TrajectoryLine.SetPosition(point, pos);
+        if (point >= 0 && point < count)
+        {
+            _TrajectoryLine.positionCount = count;
+            _TrajectoryLine.SetPosition(point, pos);
+        }
     }
 
     private void MoveHitMarker(RaycastHit hit)

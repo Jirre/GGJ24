@@ -350,6 +350,28 @@
                     "isOR": false
                 }
             ]
+        },
+        {
+            "name": "ArcadePlayerOne",
+            "bindingGroup": "ArcadePlayerOne",
+            "devices": [
+                {
+                    "devicePath": "<ArcadeGamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "ArcadePlayerTwo",
+            "bindingGroup": "ArcadePlayerTwo",
+            "devices": [
+                {
+                    "devicePath": "<ArcadeGamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
         }
     ]
 }

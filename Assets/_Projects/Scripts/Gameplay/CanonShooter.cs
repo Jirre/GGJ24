@@ -11,6 +11,7 @@ public class CanonShooter : MonoBehaviour
     [SerializeField] private PooledObjectConfig _AmmoConfig;
 
     [SerializeField] private InputActionReference _Fire;
+    [SerializeField] private InputActionReference _Move;
 
     public Transform _ShootPoint;
 
@@ -48,5 +49,22 @@ public class CanonShooter : MonoBehaviour
             Rigidbody shootRb = shootObj.GetComponent<Rigidbody>();
             shootRb.AddForce(_ShootPoint.forward * _ShootForce, ForceMode.Impulse);
         }
+        if(this != null) 
+        {
+            TurnOffPlayer();
+            Invoke(nameof(TurnOnPlayer), .7f);
+        }
+
+    }
+
+    private void TurnOffPlayer()
+    {
+        _Move.action.Disable();
+        _Fire.action.Disable();
+    }
+    private void TurnOnPlayer()
+    {
+        _Move.action.Enable();
+        _Fire.action.Enable();
     }
 }

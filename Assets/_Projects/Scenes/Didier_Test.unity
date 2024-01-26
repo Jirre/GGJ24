@@ -612,7 +612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1190330428}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.2588186, y: -0, z: -0, w: 0.965926}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
   m_LocalPosition: {x: 0.031666752, y: 1.6183108, z: 0.80248827}
   m_LocalScale: {x: 3.333333, y: 3.333333, z: 3.333333}
   m_ConstrainProportionsScale: 0
@@ -634,6 +634,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _AmmoConfig: {fileID: 11400000, guid: 8d6c0d67201d0d14db216809c26e5599, type: 2}
   _Fire: {fileID: -5421161569908676177, guid: 26d37ae16266dc74ab3813f9b75fb76a, type: 3}
+  _Move: {fileID: -8096227020257353538, guid: 26d37ae16266dc74ab3813f9b75fb76a, type: 3}
   _ShootPoint: {fileID: 227677857}
   _ShootForce: 3
 --- !u!114 &1190330434
@@ -650,7 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _HitMarker: {fileID: 1781797989}
   _MaxPoints: 50
-  _Increment: 0.025
+  _Increment: 0.04
   _RayOverlap: 1.1
 --- !u!120 &1190330435
 LineRenderer:
@@ -673,7 +674,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3d66c23339e690c44ad17419ce8ed027, type: 2}
+  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -696,7 +697,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 5}
+  - {x: 0, y: 0, z: 1}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -704,8 +705,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.21804428
+        time: 0.045454543
+        value: 0.10150109
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -749,13 +750,13 @@ LineRenderer:
     numCapVertices: 0
     alignment: 0
     textureMode: 0
-    textureScale: {x: 0.2, y: 0.2}
+    textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
   m_MaskInteraction: 0
   m_UseWorldSpace: 1
   m_Loop: 0
-  m_ApplyActiveColorSpace: 1
+  m_ApplyActiveColorSpace: 0
 --- !u!1 &1396441113
 GameObject:
   m_ObjectHideFlags: 0
