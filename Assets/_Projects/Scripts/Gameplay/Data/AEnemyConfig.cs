@@ -1,11 +1,16 @@
 ﻿using JvLib.Data;
-using UnityEngine;
 
 namespace Project.Gameplay
 {
-    public class AEnemyConfig : DataEntry
+    public abstract class AEnemyConfig : DataEntry
     {
-        [SerializeField] private float _Duration;
-        public float Duration => _Duration;
+    }
+
+    public abstract class AEnemyContext<TConfig>
+        where TConfig : AEnemyConfig
+    {
+        public TConfig Config { get; private set; }
+        public float Depth;
+        public float Duration;
     }
 }
