@@ -93,8 +93,30 @@
                 },
                 {
                     "name": "",
+                    "id": "6674e40b-fb3a-494c-8535-baba94e91554",
+                    "path": "<ArcadeGamepad>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Horizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "9de0ff52-059b-426a-8da9-8ca4b5894e62",
                     "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a844cbef-7fbd-49de-ae5b-946d3ad2dadd",
+                    "path": "<ArcadeGamepad>/YellowBottom",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -148,6 +170,15 @@
                     "name": "Click",
                     "type": "Button",
                     "id": "2a09bd1a-4223-43c7-91e8-3ac258a123f7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AllKeyInput",
+                    "type": "Button",
+                    "id": "93eb54ee-a552-4483-a32a-12356d09daa3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -317,6 +348,72 @@
                     "processors": "",
                     "groups": "Keyboard&Mouse",
                     "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "10378600-5fab-4819-93bf-f461def63f62",
+                    "path": "<ArcadeGamepad>/YellowTop",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AllKeyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b414883-1ae9-4261-8eff-d1fe6de50fdd",
+                    "path": "<ArcadeGamepad>/YellowBottom",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AllKeyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfffa17b-feb5-49a4-9a33-3acea9dcc6ae",
+                    "path": "<ArcadeGamepad>/GreenTop",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AllKeyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e229e069-7db3-4388-a15f-1a032b723e7d",
+                    "path": "<ArcadeGamepad>/GreenBottom",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AllKeyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "730f8adb-54c4-4c4b-a274-f490ca9e024e",
+                    "path": "<ArcadeGamepad>/BlueTop",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AllKeyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee06770a-0c12-4595-b5be-bf09119aa65a",
+                    "path": "<ArcadeGamepad>/BlueBottom",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AllKeyInput",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

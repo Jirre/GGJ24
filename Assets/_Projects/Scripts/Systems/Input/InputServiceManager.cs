@@ -19,8 +19,6 @@ namespace Project.Systems.Input
         {
             _inputManager = GetComponent<PlayerInputManager>();
             PlayerInput = GetComponent<PlayerInput>();
-            PlayerInput.onControlsChanged += OnDeviceChange;
-            StopHaptics();
             ServiceLocator.Instance.Register(this);
         }
 
@@ -30,17 +28,5 @@ namespace Project.Systems.Input
             ServiceLocator.Instance.ReportInstanceReady(this);
         }
 
-        private void OnDeviceChange(PlayerInput pInput)
-        {
-            _gamepad = PlayerInput.GetDevice<Gamepad>();
-            StopHaptics();
-        }
-
-        public void StopHaptics() => SetHaptics(0f, 0f);
-        
-        public void SetHaptics(float pLow, float pHigh)
-        {
-            _gamepad?.SetMotorSpeeds(pLow, pHigh);
-        }
     }
 }
