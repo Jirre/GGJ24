@@ -19,7 +19,6 @@ namespace Project.Systems.Input
 
         private const string GAMEPLAY_MAP = "Player";
         private const string UI_MAP = "UI";
-        
 
         [SerializeField] private InputActionReference _CheckRightAction;
         public bool IsServiceReady { get; private set; }
@@ -27,17 +26,21 @@ namespace Project.Systems.Input
         private void Awake()
         {
             ServiceLocator.Instance.Register(this);
+
         }
 
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForEndOfFrame();
 
             foreach (PlayerInput input in _Inputs)
             {
-                if (input.actions[_CheckRightAction.name].ReadValue<float>() > 0)
+                Debug.Log($"{input.gameObject.name} {input.actions[_CheckRightAction.name].ReadValue<float>()}");
+                if (_PlayerOne == null) _PlayerOne = new PlayerInputData(input);
+                else _PlayerTwo = new PlayerInputData(input);
+                /*if (input.actions[_CheckRightAction.name].ReadValue<float>() > 0 || _PlayerOne != null)
                     _PlayerTwo = new PlayerInputData(input);
-                else _PlayerOne = new PlayerInputData(input);
+                else _PlayerOne = new PlayerInputData(input);*/
             }
             IsServiceReady = true;
             ServiceLocator.Instance.ReportInstanceReady(this);
@@ -64,13 +67,13 @@ namespace Project.Systems.Input
     {
         public PlayerInput Input { get; private set; }
         public InputSystemUIInputModule UIInputModule { get; private set; }
-        public EventSystem Events { get; private set; }
+        public MultiplayerEventSystem Events { get; private set; }
 
         public PlayerInputData(PlayerInput pInput)
         {
             Input = pInput;
             UIInputModule = Input.GetComponent<InputSystemUIInputModule>();
-            Events = Input.GetComponent<EventSystem>();
+            Events = Input.GetComponent<MultiplayerEventSystem>();
         }
     }
 }

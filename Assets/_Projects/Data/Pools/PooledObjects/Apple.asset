@@ -17,3 +17,4 @@ MonoBehaviour:
   name: Apple
   _Prefab: {fileID: 0}
   _Buffer: 0
+  _UIImage: {fileID: 21300000, guid: 9ce6423ea2c62b2439e5ab41e679f1fb, type: 3}

@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Linq;
-using JvLib.Pooling;
+using System.Collections.Generic;
 using JvLib.Pooling.Data.Objects;
 using Random = UnityEngine.Random;
 
@@ -13,17 +12,22 @@ namespace Project.Gameplay
 
         public PlayerData GetPlayerData(int pIndex)
         {
-            if (_playerData == null || _playerData[pIndex] == null)
+            if (_playerData?[pIndex] == null)
             {
                 _playerData = new PlayerData[MAX_PLAYER_COUNT];
-                AmmunitionConfig[] ammunition = PooledObjectConfigs.Entries.Where(e => e is AmmunitionConfig).ToArray() as AmmunitionConfig[];
-                if (ammunition == null)
+                List<AmmunitionConfig> ammunition = new List<AmmunitionConfig>();
+                foreach (PooledObjectConfig config in PooledObjectConfigs.Entries)
+                {
+                    if (config is AmmunitionConfig aConfig)
+                        ammunition.Add(aConfig);
+                }
+                if (ammunition.Count <= 0)
                     throw new NullReferenceException("No Ammunition Configs available");
                 for (int i = 0; i < MAX_PLAYER_COUNT; i++)
                 {
                     _playerData[i] = new PlayerData()
                     {
-                        Ammunition = ammunition[Random.Range(0, ammunition.Length)],
+                        Ammunition = ammunition[Random.Range(0, ammunition.Count)],
                         Score = 0
                     };
                 }

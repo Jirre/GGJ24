@@ -27,6 +27,9 @@ namespace Project.UI.Windows
         [SerializeField] private InputActionReference _SubmitAction;
         [SerializeField] private InputActionReference _CancelAction;
 
+        [SerializeField] private GameObject _PlayerOneRoot;
+        [SerializeField] private GameObject _PlayerTwoRoot;
+
         [SerializeField] private List<UIElement> _PlayerOneUI;
         [SerializeField] private List<UIElement> _PlayerTwoUI;
 
@@ -37,8 +40,8 @@ namespace Project.UI.Windows
         
         public void OnWindowShow(object context)
         {
-            SetSelection(0, _PlayerOneUI);
-            SetSelection(1, _PlayerTwoUI);
+            SetSelection(0, _PlayerOneUI, _PlayerOneRoot);
+            SetSelection(1, _PlayerTwoUI, _PlayerTwoRoot);
 
             AddListeners();
 
@@ -74,7 +77,7 @@ namespace Project.UI.Windows
                     twoTitle += ".";
                 }
             }
-            _PlayerOneTitle.SetText(twoTitle);
+            _PlayerTwoTitle.SetText(twoTitle);
             
             if (_PlayerOneReady && _PlayerTwoReady)
             {
@@ -102,6 +105,7 @@ namespace Project.UI.Windows
         {
             if (!pContext.started)
                 return;
+            Debug.Log("SUBMIT");
             _PlayerOneReady = true;
         }
 
@@ -109,6 +113,7 @@ namespace Project.UI.Windows
         {
             if (!pContext.started)
                 return;
+            Debug.Log("SUBMIT");
             _PlayerTwoReady = true;
         }
 
@@ -116,6 +121,7 @@ namespace Project.UI.Windows
         {
             if (!pContext.started)
                 return;
+            Debug.Log("CANCEL");
             
             if (_PlayerOneReady) _PlayerOneReady = false;
             else Svc.GameStateMachine.TransitionTo(GameStates.MainMenu);
@@ -124,17 +130,26 @@ namespace Project.UI.Windows
         {
             if (!pContext.started)
                 return;
-            if (_PlayerOneReady) _PlayerTwoReady = false;
+            Debug.Log("CANCEL");
+            if (_PlayerTwoReady) _PlayerTwoReady = false;
             else Svc.GameStateMachine.TransitionTo(GameStates.MainMenu);
         }
 
-        private void SetSelection(int pIndex, IEnumerable<UIElement> pUI)
+        private void SetSelection(int pIndex, List<UIElement> pUI, GameObject pRoot)
         {
             PlayerData data = Svc.Gameplay.GetPlayerData(pIndex);
             PlayerInputData input = Svc.Input.FindPlayer(pIndex);
-            UIElement element = pUI.First(e => e.Config == data.Ammunition);
-            element.Image.sprite = element.Config.UIImage;
-            input.Events.SetSelectedGameObject(element.Button.gameObject);
+            input.Events.playerRoot = pRoot;
+
+            foreach (UIElement e in pUI)
+            {
+                e.Image.sprite = e.Config.UIImage;
+                if (e.Config.Name == data.Ammunition.Name)
+                {
+                    Debug.Log(e.Config.Name);
+                    input.Events.SetSelectedGameObject(e.Button.gameObject);
+                }
+            }
         }
 
         private static void SaveSelection(int pIndex, IEnumerable<UIElement> pUI)

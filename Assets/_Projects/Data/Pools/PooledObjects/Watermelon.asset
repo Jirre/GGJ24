@@ -17,3 +17,4 @@ MonoBehaviour:
   name: Watermelon
   _Prefab: {fileID: 0}
   _Buffer: 0
+  _UIImage: {fileID: 21300000, guid: 3abda188fcafc684fa978120ae2b705d, type: 3}
