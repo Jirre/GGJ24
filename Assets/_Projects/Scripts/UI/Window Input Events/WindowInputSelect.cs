@@ -18,13 +18,13 @@ namespace Project.UI.Windows.Windows
 
         public void OnWindowShow(object context)
         {
-            _input ??= Svc.Input.PlayerInput;
+            //_input ??= Svc.Input.PlayerInput;
             _input.actions[_PauseInput.action.name].AddListeners(OnInput);
         }
 
         public void OnWindowHide()
         {
-            _input ??= Svc.Input.PlayerInput;
+            //_input ??= Svc.Input.PlayerInput;
             _input.actions[_PauseInput.action.name].RemoveListeners(OnInput);
         }
 

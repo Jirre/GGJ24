@@ -1,28 +1,29 @@
-﻿using JvLib.Services;
+﻿using JvLib.Events;
 using UnityEngine;
 
 namespace Project.Gameplay.Enemy
 {
-    public class PathEnemyBehaviour : AEnemyBehaviour<PathEnemyConfig>
+    public class PathEnemyBehaviour : AEnemyBehaviour<PathEnemyConfig, PathEnemyContext>
     {
-        [SerializeField] private AnimationCurve _XCurve;
-        [SerializeField] private AnimationCurve _YCurve;
-        [SerializeField] private AnimationCurve _RotationCurve;
+        private AnimationCurve _xCurve;
+        private AnimationCurve _yCurve;
 
-        protected override void Update()
+        protected override void Initialize(PathEnemyContext pConfig)
         {
-            base.Update();
-            
-            Vector2 minBound = Svc.Gameplay.MinBound;
-            Vector2 maxBound = Svc.Gameplay.MaxBound;
-            
-            float x = minBound.x + (maxBound.x - minBound.x) * _XCurve.Evaluate01(Time / Duration);
-            float y = minBound.y + (maxBound.y - minBound.y) * _YCurve.Evaluate01(Time / Duration);
+            base.Initialize(pConfig);
 
-            float rot = _RotationCurve.Evaluate01(Time / Duration);
+            _xCurve = pConfig.Config.XMovement;
+            _yCurve = pConfig.Config.YMovement;
+        }
 
+        protected override void RoamState(EventState<EStates> pState)
+        {
+            base.RoamState(pState);
+            
+            float x = FieldMin.x + FieldSize.x * _xCurve.Evaluate01(CurrentTime / Duration);
+            float y = FieldMin.y + FieldSize.y * _yCurve.Evaluate01(CurrentTime / Duration);
+            
             transform.position = new Vector3(x, y, 0);
-            transform.rotation = Quaternion.Euler(0, rot, 0);
         }
     }
 }
