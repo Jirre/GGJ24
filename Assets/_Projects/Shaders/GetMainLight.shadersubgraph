@@ -159,10 +159,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 588.6666870117188,
-            "y": -12.666658401489258,
-            "width": 115.3333740234375,
-            "height": 126.66667175292969
+            "x": 474.0,
+            "y": 1.000018835067749,
+            "width": 113.0,
+            "height": 125.00000762939453
         }
     },
     "m_Slots": [
@@ -542,10 +542,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 0.00002765655517578125,
-            "y": 0.6666290760040283,
-            "width": 227.3333282470703,
-            "height": 351.9999694824219
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
         }
     },
     "m_Slots": [
@@ -575,7 +575,7 @@
     },
     "m_SourceType": 0,
     "m_FunctionName": "MainLight",
-    "m_FunctionSource": "2784ad58917827a4fb025dc174594c02",
+    "m_FunctionSource": "bdd920d6be7ecdb48833362641b9e83d",
     "m_FunctionBody": "Enter function body here..."
 }
 
