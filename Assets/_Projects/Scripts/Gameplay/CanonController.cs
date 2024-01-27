@@ -32,19 +32,15 @@ public class CanonController : MonoBehaviour
 
     private PlayerInput _PlayerInput;
 
-    private void Awake()
+    private IEnumerator Start()
     {
-        Svc.Ref.Input.WaitForInstanceReady(() =>
-        {
-            _PlayerInput = Svc.Input.FindPlayer(_PlayerIndex).Input;
+        yield return Svc.Ref.Input.WaitForInstanceReadyAsync();
+        yield return new WaitForEndOfFrame();
+        _PlayerInput = Svc.Input.FindPlayer(_PlayerIndex).Input;
 
-            _PlayerInput.actions[_Movement.name].AddListeners(Movement);
-            _PlayerInput.actions[_Fire.name].AddListeners(ShootObject);
-        });
-    }
-
-    private void Start()
-    {
+        _PlayerInput.actions[_Movement.name].AddListeners(Movement);
+        _PlayerInput.actions[_Fire.name].AddListeners(ShootObject);
+        
         _lineRenderer = GetComponent<LineRenderer>();
     }
 
