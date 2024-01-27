@@ -6,7 +6,7 @@
             "id": "db256280-ff84-4df0-9c30-4df08a76adc9",
             "actions": [
                 {
-                    "name": "Horizontal",
+                    "name": "Movement",
                     "type": "Value",
                     "id": "7ce7a7ae-ee31-4c61-86df-ea5ad601db89",
                     "expectedControlType": "Stick",
@@ -22,6 +22,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "CheckRight",
+                    "type": "Button",
+                    "id": "3272e7aa-d4dc-4b74-96c8-76b5ec1f9085",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -32,7 +41,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Horizontal",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -43,7 +52,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Horizontal",
+                    "action": "Movement",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -54,7 +63,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Horizontal",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -65,7 +74,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Horizontal",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -76,7 +85,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Horizontal",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -87,9 +96,20 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Horizontal",
+                    "action": "Movement",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "6674e40b-fb3a-494c-8535-baba94e91554",
+                    "path": "<ArcadeGamepad>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
@@ -99,6 +119,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a844cbef-7fbd-49de-ae5b-946d3ad2dadd",
+                    "path": "<ArcadeGamepad>/YellowBottom",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ba30d27b-3575-432d-86bc-04f0c1dc6f52",
+                    "path": "<ArcadeGamepad>/IsRightPlayer",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArcadePlayerTwo;ArcadePlayerOne",
+                    "action": "CheckRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -148,6 +190,15 @@
                     "name": "Click",
                     "type": "Button",
                     "id": "2a09bd1a-4223-43c7-91e8-3ac258a123f7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AllKeyInput",
+                    "type": "Button",
+                    "id": "93eb54ee-a552-4483-a32a-12356d09daa3",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -319,6 +370,72 @@
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "10378600-5fab-4819-93bf-f461def63f62",
+                    "path": "<ArcadeGamepad>/YellowTop",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArcadePlayerOne;ArcadePlayerTwo",
+                    "action": "AllKeyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9b414883-1ae9-4261-8eff-d1fe6de50fdd",
+                    "path": "<ArcadeGamepad>/YellowBottom",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArcadePlayerOne;ArcadePlayerTwo",
+                    "action": "AllKeyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfffa17b-feb5-49a4-9a33-3acea9dcc6ae",
+                    "path": "<ArcadeGamepad>/GreenTop",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArcadePlayerOne;ArcadePlayerTwo",
+                    "action": "AllKeyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e229e069-7db3-4388-a15f-1a032b723e7d",
+                    "path": "<ArcadeGamepad>/GreenBottom",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArcadePlayerOne;ArcadePlayerTwo",
+                    "action": "AllKeyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "730f8adb-54c4-4c4b-a274-f490ca9e024e",
+                    "path": "<ArcadeGamepad>/BlueTop",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArcadePlayerOne;ArcadePlayerTwo",
+                    "action": "AllKeyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee06770a-0c12-4595-b5be-bf09119aa65a",
+                    "path": "<ArcadeGamepad>/BlueBottom",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArcadePlayerOne;ArcadePlayerTwo",
+                    "action": "AllKeyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -346,6 +463,28 @@
                 },
                 {
                     "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "ArcadePlayerOne",
+            "bindingGroup": "ArcadePlayerOne",
+            "devices": [
+                {
+                    "devicePath": "<ArcadeGamepad>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "ArcadePlayerTwo",
+            "bindingGroup": "ArcadePlayerTwo",
+            "devices": [
+                {
+                    "devicePath": "<ArcadeGamepad>",
                     "isOptional": false,
                     "isOR": false
                 }
