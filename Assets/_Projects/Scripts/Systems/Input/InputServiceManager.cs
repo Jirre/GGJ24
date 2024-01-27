@@ -17,6 +17,10 @@ namespace Project.Systems.Input
         private PlayerInputData _PlayerOne;
         private PlayerInputData _PlayerTwo;
 
+        private const string GAMEPLAY_MAP = "Player";
+        private const string UI_MAP = "UI";
+        
+
         [SerializeField] private InputActionReference _CheckRightAction;
         public bool IsServiceReady { get; private set; }
         
@@ -42,6 +46,17 @@ namespace Project.Systems.Input
         public PlayerInputData FindPlayer(int pIndex)
         {
             return pIndex == 0 ? _PlayerOne : _PlayerTwo;
+        }
+
+        public void SetGameplayActionMap()
+        {
+            _PlayerOne.Input.SwitchCurrentActionMap(GAMEPLAY_MAP);
+            _PlayerTwo.Input.SwitchCurrentActionMap(GAMEPLAY_MAP);
+        }
+        public void SetUIActionMap()
+        {
+            _PlayerOne.Input.SwitchCurrentActionMap(UI_MAP);
+            _PlayerTwo.Input.SwitchCurrentActionMap(UI_MAP);
         }
     }
 
