@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3db6eb0174cd48c2afc587bc685ba7e0, type: 3}
+  m_Name: Coconut
+  m_EditorClassIdentifier: 
+  _ParentObject: {fileID: 11400000, guid: 59e5ce10c9334a84999ee081725105f3, type: 2}
+  _Guid: 45083288ed63f2242b0a3940c18a7618
+  name: Coconut
+  _Prefab: {fileID: 0}
+  _Buffer: 0
+  _UIImage: {fileID: 0}

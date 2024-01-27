@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_Spotlight
-  m_Shader: {fileID: -6465566751694194690, guid: ca929afff157f6e4bbe69fbf179bbb4d, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: c2e88892d8ab1b545a7a212aefb95ac2, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -94,7 +94,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
-    - _CircleDensity: 12.46
+    - _CircleDensity: 31.15
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -104,11 +104,11 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _FalloffThreshold: 1.5
+    - _FalloffThreshold: 1.62
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Lit_Threshold: 1.06
+    - _Lit_Threshold: 0.8
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005

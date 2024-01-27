@@ -34,13 +34,14 @@ namespace Project.UI.Windows
                     ? $"{(i + 1).ToString()}. {EMPTY_SCORE_ENTRY}"
                     : ParseHighscoreToString(i + 1, Svc.Gameplay.AllTimeHighscores[i]));
             }
-            
-            _InputAction.action.AddListeners(Trigger);
+            Svc.Input.FindPlayer(0).Input.actions[_InputAction.name].AddListeners(Trigger);
+            Svc.Input.FindPlayer(1).Input.actions[_InputAction.name].AddListeners(Trigger);
         }
         
         public void OnWindowHide()
         {
-            _InputAction.action.RemoveListeners(Trigger);
+            Svc.Input.FindPlayer(0).Input.actions[_InputAction.name].RemoveListeners(Trigger);
+            Svc.Input.FindPlayer(1).Input.actions[_InputAction.name].RemoveListeners(Trigger);
         }
 
         private static string ParseHighscoreToString(int pPlace, HighscoreEntry pEntry) =>
