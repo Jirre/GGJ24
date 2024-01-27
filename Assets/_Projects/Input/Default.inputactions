@@ -178,15 +178,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Pointer",
-                    "type": "Value",
-                    "id": "2075c6d8-c753-476b-9e5f-b134870f5da0",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
                     "name": "Click",
                     "type": "Button",
                     "id": "2a09bd1a-4223-43c7-91e8-3ac258a123f7",
@@ -329,11 +320,33 @@
                 },
                 {
                     "name": "",
+                    "id": "9d70eea5-01a5-482a-898b-7f286e38436b",
+                    "path": "<ArcadeGamepad>/stick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArcadePlayerOne;ArcadePlayerTwo",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "93ed7b2e-4726-41d1-983c-658888baa33d",
                     "path": "*/{Submit}",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse;Controller",
+                    "action": "Submit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "dc7193fa-941f-4c65-9527-f19a77f2ee3a",
+                    "path": "<ArcadeGamepad>/YellowBottom",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArcadePlayerOne;ArcadePlayerTwo",
                     "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -362,22 +375,22 @@
                 },
                 {
                     "name": "",
-                    "id": "ca3ac95c-2f75-4d73-af73-97f6ea47dffd",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Pointer",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "dc0d3c43-52d4-45c2-8b5c-cc13b7d10685",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
+                    "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4d0dd356-8fc4-45b8-b9c5-800fc55277bc",
+                    "path": "<ArcadeGamepad>/YellowBottom",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArcadePlayerOne;ArcadePlayerTwo",
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false

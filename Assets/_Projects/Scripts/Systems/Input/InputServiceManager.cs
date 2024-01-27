@@ -36,9 +36,11 @@ namespace Project.Systems.Input
             foreach (PlayerInput input in _Inputs)
             {
                 Debug.Log($"{input.gameObject.name} {input.actions[_CheckRightAction.name].ReadValue<float>()}");
-                if (input.actions[_CheckRightAction.name].ReadValue<float>() > 0 || _PlayerOne != null)
+                if (_PlayerOne == null) _PlayerOne = new PlayerInputData(input);
+                else _PlayerTwo = new PlayerInputData(input);
+                /*if (input.actions[_CheckRightAction.name].ReadValue<float>() > 0 || _PlayerOne != null)
                     _PlayerTwo = new PlayerInputData(input);
-                else _PlayerOne = new PlayerInputData(input);
+                else _PlayerOne = new PlayerInputData(input);*/
             }
             IsServiceReady = true;
             ServiceLocator.Instance.ReportInstanceReady(this);
