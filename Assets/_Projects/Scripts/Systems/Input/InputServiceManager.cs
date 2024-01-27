@@ -19,7 +19,6 @@ namespace Project.Systems.Input
 
         private const string GAMEPLAY_MAP = "Player";
         private const string UI_MAP = "UI";
-        
 
         [SerializeField] private InputActionReference _CheckRightAction;
         public bool IsServiceReady { get; private set; }
