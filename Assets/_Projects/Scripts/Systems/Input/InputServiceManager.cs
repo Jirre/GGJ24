@@ -26,16 +26,17 @@ namespace Project.Systems.Input
         private void Awake()
         {
             ServiceLocator.Instance.Register(this);
+
         }
 
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForEndOfFrame();
 
             foreach (PlayerInput input in _Inputs)
             {
                 Debug.Log($"{input.gameObject.name} {input.actions[_CheckRightAction.name].ReadValue<float>()}");
-                if (input.actions[_CheckRightAction.name].ReadValue<float>() > 0)
+                if (input.actions[_CheckRightAction.name].ReadValue<float>() > 0 || _PlayerOne != null)
                     _PlayerTwo = new PlayerInputData(input);
                 else _PlayerOne = new PlayerInputData(input);
             }
