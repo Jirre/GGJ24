@@ -15,7 +15,7 @@ MonoBehaviour:
   _ParentObject: {fileID: 11400000, guid: f394fd4891e0344419e588a5f44d77fc, type: 2}
   _Guid: 846dc24474764d7408f832779e62061b
   name: MainMenu
-  _Prefab: {fileID: 0}
+  _Prefab: {fileID: 694759108273955321, guid: 8fbaab3c71dbe634bb7622cb1802f0e9, type: 3}
   _InstantiateOnStartup: 0
   _Layer: {fileID: 11400000, guid: 5219a3e5cedc1fb478ab9fbc76fb1d96, type: 2}
   _CanHaveFocus: 1

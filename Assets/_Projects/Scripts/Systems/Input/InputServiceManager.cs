@@ -1,10 +1,10 @@
 using JvLib.Services;
-using System;
 using System.Collections;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 namespace Project.Systems.Input
 {
@@ -14,46 +14,63 @@ namespace Project.Systems.Input
     public class InputServiceManager : MonoBehaviour, IService
     {
         [SerializeField] private PlayerInput[] _Inputs;
-        private PlayerInput _PlayerOne;
-        private PlayerInput _PlayerTwo;
+        private PlayerInputData _PlayerOne;
+        private PlayerInputData _PlayerTwo;
+
+        private const string GAMEPLAY_MAP = "Player";
+        private const string UI_MAP = "UI";
+        
 
         [SerializeField] private InputActionReference _CheckRightAction;
         public bool IsServiceReady { get; private set; }
-        private PlayerInputManager _inputManager;
-        private Gamepad _gamepad;
-
-        private bool _IsPlayerRight;
-        //private const string MAP_KEY = "Player";
         
         private void Awake()
         {
-            _inputManager = GetComponent<PlayerInputManager>();
             ServiceLocator.Instance.Register(this);
         }
 
         private IEnumerator Start()
         {
-
             yield return new WaitForSeconds(0.5f);
 
             foreach (PlayerInput input in _Inputs)
             {
-
-                ArcadeGamepad gamepad = input.devices.First() as ArcadeGamepad;
                 if (input.actions[_CheckRightAction.name].ReadValue<float>() > 0)
-                    _PlayerTwo = input;
-                else _PlayerOne = input;
+                    _PlayerTwo = new PlayerInputData(input);
+                else _PlayerOne = new PlayerInputData(input);
             }
             IsServiceReady = true;
             ServiceLocator.Instance.ReportInstanceReady(this);
         }
 
-        public PlayerInput FindPlayer(int pIndex)
+        public PlayerInputData FindPlayer(int pIndex)
         {
-            return pIndex == 0 ? _PlayerOne : _PlayerTwo;   
+            return pIndex == 0 ? _PlayerOne : _PlayerTwo;
         }
-        
 
+        public void SetGameplayActionMap()
+        {
+            _PlayerOne.Input.SwitchCurrentActionMap(GAMEPLAY_MAP);
+            _PlayerTwo.Input.SwitchCurrentActionMap(GAMEPLAY_MAP);
+        }
+        public void SetUIActionMap()
+        {
+            _PlayerOne.Input.SwitchCurrentActionMap(UI_MAP);
+            _PlayerTwo.Input.SwitchCurrentActionMap(UI_MAP);
+        }
+    }
 
+    public class PlayerInputData
+    {
+        public PlayerInput Input { get; private set; }
+        public InputSystemUIInputModule UIInputModule { get; private set; }
+        public EventSystem Events { get; private set; }
+
+        public PlayerInputData(PlayerInput pInput)
+        {
+            Input = pInput;
+            UIInputModule = Input.GetComponent<InputSystemUIInputModule>();
+            Events = Input.GetComponent<EventSystem>();
+        }
     }
 }

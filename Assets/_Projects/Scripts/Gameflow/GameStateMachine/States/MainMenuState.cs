@@ -9,6 +9,7 @@ namespace Project.StateMachines
         {
             base.OnEnter(pPrevious);
             Svc.Window.Open(WindowID.MainMenu);
+            Svc.Input.SetUIActionMap();
         }
 
         protected override void OnExit(GameStates nextState)

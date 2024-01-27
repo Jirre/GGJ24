@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec9bf14c65e349f4ea2c86264182d40c, type: 3}
+  m_Name: CharacterSelect
+  m_EditorClassIdentifier: 
+  _ParentObject: {fileID: 11400000, guid: f394fd4891e0344419e588a5f44d77fc, type: 2}
+  _Guid: 1fe4c1115cd4c8143b744750781ce88a
+  name: CharacterSelect
+  _Prefab: {fileID: 4532327586067944881, guid: 99f3d352661621a40bf3cd1520bbdc28, type: 3}
+  _InstantiateOnStartup: 0
+  _Layer: {fileID: 11400000, guid: 5219a3e5cedc1fb478ab9fbc76fb1d96, type: 2}
+  _CanHaveFocus: 1
+  _CreateCanvas: 0
+  _CreateRaycaster: 1
+  _AutoSetInteractability: 0
+  _DynamicChildContent: 0
+  _DispatchListenersToInactiveObjects: 0
