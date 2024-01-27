@@ -17,6 +17,9 @@ namespace Project.GameFlow
         private static IEnumerator LoadDependenciesEnumerator()
         {
             yield return Svc.Ref.GameStateMachine.WaitForInstanceReadyAsync();
+            yield return Svc.Ref.Input.WaitForInstanceReadyAsync();
+
+            yield return new WaitForSeconds(0.5f);
 
             // Only go to MenuState if currently in the InitState
             if (Svc.GameStateMachine.CurrentState is not InitState initState) 

@@ -31,10 +31,11 @@ namespace Project.Systems.Input
 
         private IEnumerator Start()
         {
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.25f);
 
             foreach (PlayerInput input in _Inputs)
             {
+                Debug.Log($"{input.gameObject.name} {input.actions[_CheckRightAction.name].ReadValue<float>()}");
                 if (input.actions[_CheckRightAction.name].ReadValue<float>() > 0)
                     _PlayerTwo = new PlayerInputData(input);
                 else _PlayerOne = new PlayerInputData(input);

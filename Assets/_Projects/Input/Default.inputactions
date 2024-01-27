@@ -351,6 +351,17 @@
                 },
                 {
                     "name": "",
+                    "id": "5654636a-5071-4477-b04e-ad0bc33c3862",
+                    "path": "<ArcadeGamepad>/BlueBottom",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "ArcadePlayerOne;ArcadePlayerTwo",
+                    "action": "Cancel",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "ca3ac95c-2f75-4d73-af73-97f6ea47dffd",
                     "path": "<Mouse>/position",
                     "interactions": "",

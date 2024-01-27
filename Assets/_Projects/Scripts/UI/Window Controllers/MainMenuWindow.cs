@@ -34,6 +34,7 @@ namespace Project.UI.Windows
                     ? $"{(i + 1).ToString()}. {EMPTY_SCORE_ENTRY}"
                     : ParseHighscoreToString(i + 1, Svc.Gameplay.AllTimeHighscores[i]));
             }
+            Debug.Log(Svc.Input.FindPlayer(0) == null);
             Svc.Input.FindPlayer(0).Input.actions[_InputAction.name].AddListeners(Trigger);
             Svc.Input.FindPlayer(1).Input.actions[_InputAction.name].AddListeners(Trigger);
         }
