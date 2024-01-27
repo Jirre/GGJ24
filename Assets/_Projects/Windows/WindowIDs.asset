@@ -15,6 +15,7 @@ MonoBehaviour:
   _BaseList: {fileID: 0}
   _Entries:
   - {fileID: 11400000, guid: 846dc24474764d7408f832779e62061b, type: 2}
+  - {fileID: 11400000, guid: 1fe4c1115cd4c8143b744750781ce88a, type: 2}
   _DerivedLists: []
   _Guid: f394fd4891e0344419e588a5f44d77fc
   _AutoGenerateIDs: 1

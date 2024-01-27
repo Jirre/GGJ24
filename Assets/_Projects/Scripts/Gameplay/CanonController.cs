@@ -36,7 +36,7 @@ public class CanonController : MonoBehaviour
     {
         Svc.Ref.Input.WaitForInstanceReady(() =>
         {
-            _PlayerInput = Svc.Input.FindPlayer(_PlayerIndex);
+            _PlayerInput = Svc.Input.FindPlayer(_PlayerIndex).Input;
 
             _PlayerInput.actions[_Movement.name].AddListeners(Movement);
             _PlayerInput.actions[_Fire.name].AddListeners(ShootObject);
