@@ -31,8 +31,6 @@ namespace Project.Systems.Input
 
             foreach (PlayerInput input in _Inputs)
             {
-
-                ArcadeGamepad gamepad = input.devices.First() as ArcadeGamepad;
                 if (input.actions[_CheckRightAction.name].ReadValue<float>() > 0)
                     _PlayerTwo = new PlayerInputData(input);
                 else _PlayerOne = new PlayerInputData(input);

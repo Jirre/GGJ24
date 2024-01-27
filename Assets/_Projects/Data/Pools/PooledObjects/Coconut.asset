@@ -17,3 +17,4 @@ MonoBehaviour:
   name: Coconut
   _Prefab: {fileID: 0}
   _Buffer: 0
+  _UIImage: {fileID: 0}

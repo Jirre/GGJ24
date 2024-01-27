@@ -436,6 +436,17 @@
                     "action": "AllKeyInput",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "10fc8664-3605-47b5-9cbf-487c148d6bcf",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AllKeyInput",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
