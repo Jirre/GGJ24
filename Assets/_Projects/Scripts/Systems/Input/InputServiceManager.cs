@@ -64,13 +64,13 @@ namespace Project.Systems.Input
     {
         public PlayerInput Input { get; private set; }
         public InputSystemUIInputModule UIInputModule { get; private set; }
-        public EventSystem Events { get; private set; }
+        public MultiplayerEventSystem Events { get; private set; }
 
         public PlayerInputData(PlayerInput pInput)
         {
             Input = pInput;
             UIInputModule = Input.GetComponent<InputSystemUIInputModule>();
-            Events = Input.GetComponent<EventSystem>();
+            Events = Input.GetComponent<MultiplayerEventSystem>();
         }
     }
 }
