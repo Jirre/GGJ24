@@ -17,3 +17,4 @@ MonoBehaviour:
   name: Banana
   _Prefab: {fileID: 0}
   _Buffer: 0
+  _UIImage: {fileID: 21300000, guid: 3b884421120039c4b8fd5849f1eac937, type: 3}

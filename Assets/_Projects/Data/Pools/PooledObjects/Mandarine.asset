@@ -17,3 +17,4 @@ MonoBehaviour:
   name: Mandarine
   _Prefab: {fileID: 0}
   _Buffer: 0
+  _UIImage: {fileID: 21300000, guid: 9f05f42da09065f49b5a9dd0224cb586, type: 3}

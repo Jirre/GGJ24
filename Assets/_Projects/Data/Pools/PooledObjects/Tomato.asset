@@ -17,3 +17,4 @@ MonoBehaviour:
   name: Tomato
   _Prefab: {fileID: 0}
   _Buffer: 0
+  _UIImage: {fileID: 21300000, guid: bd999fa5f93400541bab7f380c7bdcf7, type: 3}
